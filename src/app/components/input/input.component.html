@@ -1,0 +1,30 @@
+<h1>Ejemplo de Enlazado de Datos</h1>
+<h4>Ingrese texto  acontinuacion</h4>
+<input type="text" [(ngModel)] = 'data'>
+<button (click)="emisor.emit(data)">Mostrar en el titulo del padre</button>
+<h3>El texto ingresado es: {{data}}</h3>
+<!-- Este es un If actual y el de abajo es mas antiguo, pero ambos funcionales.-->
+@if(+data % 2 == 0){ 
+<p>
+    El numero ingresado es par
+</p>
+}
+
+<p *ngIf="data === 'Carlos Loaiza'">
+    Hola Carlitos
+</p>
+
+<br>
+
+<!-- este es un for mas actual -->
+<ul>
+@for (item of arreglo; track $index) {
+    <li (click)="mostrarMensaje(item.nombre)">nombre : {{item.nombre}}--- ocupacion{{item.ocupacion}}</li>
+}
+</ul>
+
+<ul>
+    <li *ngFor="let item of arreglo">
+        nombre : {{item.nombre}}--- ocupacion{{item.ocupacion}}
+    </li>
+</ul>
